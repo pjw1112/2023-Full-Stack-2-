@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.company.dbmanager.DBManager;
-import com.company.dto.Mvcboard2_dto;
 import com.company.jsp040.JavaDBManager;
+
+
 
 @WebServlet("/ELBean005")
 public class ELBean005 extends HttpServlet {
@@ -46,8 +46,15 @@ public class ELBean005 extends HttpServlet {
 		if (request.getParameter("price_range") != null) {
 			price_range = request.getParameter("price_range");
 		}
-		max=3000;
-
+		
+		switch (price_range){
+		case "choice1": min=0; max=999; break;
+		case "choice2": min=1000; max=1999; break;
+		case "choice3": min=2000; max=2999; break;
+		
+		}
+		
+		
 		// 1. db 연동
 		JavaDBManager db = new JavaDBManager();
 		Connection conn = null;

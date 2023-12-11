@@ -21,11 +21,11 @@
 				<legend>가격대 검색</legend>
 				
 				<label> 
-				<input type="radio" name="price_range" value="choice1"> 1,500원 미만
+				<input type="radio" name="price_range" value="choice1"> 1,000원 미만
 				</label> <br> <label> 
-				<input type="radio" name="price_range" value="choice2"> 1,500원 ~ 3,000원
+				<input type="radio" name="price_range" value="choice2"> 1,000원 ~ 2,000원
 				</label> <br> <label> 
-				<input type="radio" name="price_range" value="choice3"> 3,000원 초과
+				<input type="radio" name="price_range" value="choice3"> 2,000원 ~ 3,000원
 				</label> 
 
 

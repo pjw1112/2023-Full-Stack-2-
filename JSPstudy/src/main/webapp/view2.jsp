@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="com.company.jsp051.ELItem"%>
@@ -35,15 +36,14 @@
 				</tr>
 			</thead>
 			<tbody>
-			<tr>
+			
 <%
- List<ELItem> list = (List<ELItem>)request.getAttribute("list");
- Iterator<ELItem> it= list.iterator();
- while(it.hasNext()){
-	 out.print("<td>"+it.next().getIno()+"</td>");
-	 out.print("<td>"+it.next().getName()+"</td>");
-	 out.print("<td>"+it.next().getPrice()+"</td>");
-	 out.print("<td>"+it.next().getDescription()+"</td>");
+ List<ELItem> list = (ArrayList<ELItem>)request.getAttribute("list");
+for(ELItem item : list){
+	 out.print("<tr><td>"+item.getIno()+"</td>");
+	 out.print("<td>"+item.getName()+"</td>");
+	 out.print("<td>"+item.getPrice()+"</td>");
+	 out.print("<td>"+item.getDescription()+"</td></tr>");
  }
 
 %>
@@ -51,7 +51,7 @@
 
 				
 					
-				</tr>
+				
 
 			</tbody>
 
