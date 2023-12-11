@@ -121,8 +121,8 @@
 					prefix="localhost_access_log" suffix=".txt" />
 
 
-				<Context docBase="JSP study" path="/JSP_study"
-					reloadable="true" source="org.eclipse.jst.jee.server:JSP study">
+				<Context docBase="JSPstudy" path="/JSPstudy"
+					reloadable="true" source="org.eclipse.jst.jee.server:JSPstudy">
 
 					<Resource auth="Container"
 						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
@@ -145,9 +145,7 @@
 						password="1234" type="javax.sql.DataSource"
 						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
 				</Context>
-
-
-
+				
 				<Context docBase="board_mvc2" path="/board_mvc2"
 					reloadable="true" source="org.eclipse.jst.jee.server:board_mvc2">
 					<Resource auth="Container"
@@ -156,6 +154,7 @@
 						password="1234" type="javax.sql.DataSource"
 						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
 				</Context>
+			
 			</Host>
 		</Engine>
 	</Service>

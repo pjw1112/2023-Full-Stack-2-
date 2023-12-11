@@ -54,11 +54,9 @@
 ■ 학과와 학생은  
 << 학과(Department)>> ┼--------------------------∈<<학생(Student)>>
 학과코드(dept_id:★pk) 		                      학번(std_id:★pk) 
-학과명(dept_name)				        성명(std_name)	
-					        키(height)	
-					        학과코드(dept_id:☆fk)
-하
- 
+학과명(dept_name)				          성명(std_name)	
+					          키(height)	
+					          학과코드(dept_id:☆fk)
 
 ■ 학과와 교수는    
 << 학과(Department)>>┼--------------------------∈ << 교수(Professor)>>
@@ -67,8 +65,6 @@
 					        학과코드(dept_id:☆fk)			        
 
  
- 
-
 ■ 교수와 개설과목은  
 << 교수(Professor)>>┼--------------------------∈ <<개설과목(Course)>>
 교수코드(prof_id:★pk)  			과목코드(course_id:prof_id:★pk)		
@@ -106,4 +102,19 @@
  
 프로토타입 샘플 예시 제출할 것
 
+1. FK (foreign key)
+- 외래키(참조키)
+- 다른 테이블의 기본키를 참조하는 키
+- 중복가능 / null 허용
+- 참조되어 있는 테이블의 값 이외에는 삽입 할 수 없음
+- 레코드 삭제나 테이블 삭제시 foreign key 가 지정된 레코드나 테이블을 삭제한 후에 참조대상을 삭제 할 수 있음.
 
+foreign 키 설정하는 쿼리★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+create table t3(
+    no int not null auto_increment primary key,
+     name varchar(100)
+);
+create table t4(
+    ino int not null auto_increment primary key,
+    foreign key(ino) references t3(no) on delete cascade on update cascade
+);
