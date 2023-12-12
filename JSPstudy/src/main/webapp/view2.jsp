@@ -35,22 +35,17 @@
 				</tr>
 			</thead>
 			<tbody>
-			<tr>
-<%
- List<ELItem> list = (List<ELItem>)request.getAttribute("list");
- Iterator<ELItem> it= list.iterator();
- while(it.hasNext()){
-	 out.print("<td>"+it.next().getIno()+"</td>");
-	 out.print("<td>"+it.next().getName()+"</td>");
-	 out.print("<td>"+it.next().getPrice()+"</td>");
-	 out.print("<td>"+it.next().getDescription()+"</td>");
- }
-
-%>
-			
-
-				
-					
+				<tr>
+					<%
+					List<ELItem> list = (List<ELItem>) request.getAttribute("list");
+					Iterator<ELItem> it = list.iterator();
+					while (it.hasNext()) {
+						out.print("<td>" + it.next().getIno() + "</td>");
+						out.print("<td>" + it.next().getName() + "</td>");
+						out.print("<td>" + it.next().getPrice() + "</td>");
+						out.print("<td>" + it.next().getDescription() + "</td>");
+					}
+					%>
 				</tr>
 
 			</tbody>

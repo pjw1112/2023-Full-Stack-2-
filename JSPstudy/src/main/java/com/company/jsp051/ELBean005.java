@@ -47,7 +47,7 @@ public class ELBean005 extends HttpServlet {
 			price_range = request.getParameter("price_range");
 		}
 		max=3000;
-
+		
 		// 1. db 연동
 		JavaDBManager db = new JavaDBManager();
 		Connection conn = null;
