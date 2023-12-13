@@ -46,6 +46,7 @@ public class ELBean005 extends HttpServlet {
 		if (request.getParameter("price_range") != null) {
 			price_range = request.getParameter("price_range");
 		}
+
 		
 		switch (price_range){
 		case "choice1": min=0; max=999; break;
@@ -54,6 +55,7 @@ public class ELBean005 extends HttpServlet {
 		
 		}
 		
+
 		
 		// 1. db 연동
 		JavaDBManager db = new JavaDBManager();

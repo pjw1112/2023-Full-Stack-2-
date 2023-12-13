@@ -21,12 +21,8 @@
 		<p class="panel-body"><img alt="error페이지" src="<%=request.getContextPath()%>/images/error.png"></p>
 		<p><a href="<%=request.getContextPath()%>/">HOME</a> </p>
 		
-		<pre>
-
-		</pre>
-		<%
-
-		%>
+		<%=exception.getMessage()%>
+		
 	</div>
 	<!-- div container -->
 	<!-- div container -->

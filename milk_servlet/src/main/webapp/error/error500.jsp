@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>페이지 제목</title>
+<title>에러500</title>
 <!-- Bootstrap and Jquery -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -21,7 +21,7 @@
 		<p class="panel-body"><img alt="error페이지" src="<%=request.getContextPath()%>/images/error.png"></p>
 		
 		<%=exception.getMessage()%>
-		
+				
 	</div>
 	<!-- div container -->
 	<!-- div container -->

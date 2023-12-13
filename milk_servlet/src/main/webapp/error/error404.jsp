@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>페이지 제목</title>
+<title>404 에러</title>
 <!-- Bootstrap and Jquery -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -17,8 +17,9 @@
 	<!-- div container -->
 	<!-- div container -->
 	<div class="container  panel panel-warning">
-		<h3 class="panel-heading">에러500 서버 내부 오류 관리자에게 문의 바랍니다</h3>
+		<h3 class="panel-heading">404 요청하신 페이지가 없습니다.</h3>
 		<p class="panel-body"><img alt="error페이지" src="<%=request.getContextPath()%>/images/error.png"></p>
+		<p><a href="<%=request.getContextPath()%>/">HOME</a> </p>
 		
 		<%=exception.getMessage()%>
 		

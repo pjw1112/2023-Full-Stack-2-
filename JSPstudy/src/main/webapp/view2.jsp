@@ -36,6 +36,7 @@
 				</tr>
 			</thead>
 			<tbody>
+<<<<<<< HEAD
 			
 <%
  List<ELItem> list = (ArrayList<ELItem>)request.getAttribute("list");
@@ -52,6 +53,20 @@ for(ELItem item : list){
 				
 					
 				
+=======
+				<tr>
+					<%
+					List<ELItem> list = (List<ELItem>) request.getAttribute("list");
+					Iterator<ELItem> it = list.iterator();
+					while (it.hasNext()) {
+						out.print("<td>" + it.next().getIno() + "</td>");
+						out.print("<td>" + it.next().getName() + "</td>");
+						out.print("<td>" + it.next().getPrice() + "</td>");
+						out.print("<td>" + it.next().getDescription() + "</td>");
+					}
+					%>
+				</tr>
+>>>>>>> 351eeb4bdf8bd9cd981b9a39714a9b3f1b0148b1
 
 			</tbody>
 

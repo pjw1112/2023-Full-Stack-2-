@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page isErrorPage="true" %>
-<% response.setStatus(200); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +14,9 @@
 	<!-- div container -->
 	<!-- div container -->
 	<div class="container  panel panel-warning">
-		<h3 class="panel-heading">에러500 서버 내부 오류 관리자에게 문의 바랍니다</h3>
-		<p class="panel-body"><img alt="error페이지" src="<%=request.getContextPath()%>/images/error.png"></p>
-		
-		<%=exception.getMessage()%>
-		
+		<h3 class="panel-heading">1. 제목</h3>
+		<p class="panel-body">소제목</p>
+		<h1>A.jsp 페이지 입니다</h1>
 	</div>
 	<!-- div container -->
 	<!-- div container -->

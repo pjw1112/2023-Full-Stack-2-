@@ -145,7 +145,7 @@
 						password="1234" type="javax.sql.DataSource"
 						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
 				</Context>
-				
+
 				<Context docBase="board_mvc2" path="/board_mvc2"
 					reloadable="true" source="org.eclipse.jst.jee.server:board_mvc2">
 					<Resource auth="Container"
@@ -154,7 +154,25 @@
 						password="1234" type="javax.sql.DataSource"
 						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
 				</Context>
-			
+
+				<Context docBase="board_mvc2_frontController"
+					path="/board_mvc2_frontController" reloadable="true"
+					source="org.eclipse.jst.jee.server:board_mvc2_frontController">
+					<Resource auth="Container"
+						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
+						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
+				</Context>
+				
+				<Context docBase="milk_servlet" path="/milk_servlet"
+					reloadable="true" source="org.eclipse.jst.jee.server:milk_servlet">
+					<Resource auth="Container"
+						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
+						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
+				</Context>
 			</Host>
 		</Engine>
 	</Service>
