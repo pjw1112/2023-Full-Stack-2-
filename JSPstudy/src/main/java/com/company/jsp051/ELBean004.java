@@ -56,7 +56,8 @@ public class ELBean004 extends HttpServlet {
 		String description = request.getParameter("description");
 		
 		JavaDBManager db = new JavaDBManager();
-		Connection conn = null; PreparedStatement pstmt = null; 
+		Connection conn = null; 
+		PreparedStatement pstmt = null; 
 		String sql = "insert into elitem (name , price , description ) values (?,?,?)";
 		String result= "관리자에게 문의바랍니다.";	
 		conn = db.getConnection();

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="com.company.jsp051.ELItem"%>
@@ -35,6 +36,24 @@
 				</tr>
 			</thead>
 			<tbody>
+<<<<<<< HEAD
+			
+<%
+ List<ELItem> list = (ArrayList<ELItem>)request.getAttribute("list");
+for(ELItem item : list){
+	 out.print("<tr><td>"+item.getIno()+"</td>");
+	 out.print("<td>"+item.getName()+"</td>");
+	 out.print("<td>"+item.getPrice()+"</td>");
+	 out.print("<td>"+item.getDescription()+"</td></tr>");
+ }
+
+%>
+			
+
+				
+					
+				
+=======
 				<tr>
 					<%
 					List<ELItem> list = (List<ELItem>) request.getAttribute("list");
@@ -47,6 +66,7 @@
 					}
 					%>
 				</tr>
+>>>>>>> 351eeb4bdf8bd9cd981b9a39714a9b3f1b0148b1
 
 			</tbody>
 
