@@ -3,9 +3,9 @@
 <%@ include file="../inc/header.jsp" %>
 <%@page import="java.sql.*"%>
 <%
+
 request.setCharacterEncoding("UTF-8");
 Mvcboard2_dto item = (Mvcboard2_dto)request.getAttribute("mvc2_dto");
-
 %>
 
 <div class="container"  style="margin-top:5%; min-height:500px">

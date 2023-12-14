@@ -1,5 +1,5 @@
 <%@page import="com.company.dto.Milk_dto"%>
-<%@page import="com.company.dao.Milk_dao"%>
+<%@page import="com.company.dao.board_dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,14 +19,13 @@
 		<h3 class="panel-heading">dao.list()</h3>
 		
 		<%
-		Milk_dao dao = new Milk_dao();
-		out.print(dao.list());
-		
-		Milk_dto dto = new Milk_dto();
-		
-		
-		
-		%>
+				p
+
+						board_dao dao = new board_dao();
+						out.print(dao.list());
+						
+						Milk_dto dto = new Milk_dto();
+				%>
 	</div>
 	<!-- div container -->
 	<!-- div container -->

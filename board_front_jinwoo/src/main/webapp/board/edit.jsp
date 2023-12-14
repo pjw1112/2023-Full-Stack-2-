@@ -1,24 +1,18 @@
-<%@page import="com.company.dto.Mvcboard2_dto"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ include  file="../inc/header.jsp" %>
 <!--  END HEADER -->
 <!--  END HEADER -->
 <!--  END HEADER -->
 <%@page import="java.sql.*"%>
-<%
 
-
-request.setCharacterEncoding("UTF-8");
-Mvcboard2_dto item = (Mvcboard2_dto)request.getAttribute("mvc2_dto");
-%>
 <div class="container"  style="margin-top:5%; min-height:500px"   >
 	<h3>MULTIBOARD - 글수정 </h3>
-		<form action="Bedit?bno=<%=item.getBno()%>" method="post"  id="editForm" >
+		<form action="edit.do?bno=${dto.bno}" method="post"  id="editForm" >
 		   <fieldset>
 		   <legend>	UPDATE</legend>
 			<div class="form-group">
 			  <label for="bname"  >이름</label>
-			  <input type="text"   name="bname"   id="bname"   class="form-control"   value="<%=item.getBname() %>"  readonly> 
+			  <input type="text"   name="bname"   id="bname"   class="form-control"   value="${dto.bname}"  readonly> 
 			</div>			
 			<div class="form-group">
 			  <label for="bpass"  >비밀번호</label>
@@ -27,16 +21,16 @@ Mvcboard2_dto item = (Mvcboard2_dto)request.getAttribute("mvc2_dto");
 			</div>																
 			<div class="form-group">
 			  <label for="btitle"  >제목</label>
-			  <input type="text"   name="btitle"   id="btitle"   class="form-control"  value="<%=item.getTitle() %>"> 
+			  <input type="text"   name="btitle"   id="btitle"   class="form-control"  value="${dto.title}"> 
 			</div>	
 			<div class="form-group">
 			  <label for="bcontent"  >내용</label>
-			  <textarea name="bcontent"  id="bcontent"  cols="60"  rows="10"   class="form-control" ><%=item.getBcontent() %></textarea>
+			  <textarea name="bcontent"  id="bcontent"  cols="60"  rows="10"   class="form-control" >${dto.bcontent}</textarea>
 			</div>				
 			<div class="form-group  text-right">
 				<input type="submit"   value="입력"   class="btn btn-danger"  >  
 				<input type="reset"    value="취소"  class="btn btn-default"    >  
-				<a href="Blist"   class="btn btn-default"   >목록보기</a>
+				<a href="list.do"   class="btn btn-default"   >목록보기</a>
 			</div>
 		 </fieldset>		
 		</form> <!-- end form -->	

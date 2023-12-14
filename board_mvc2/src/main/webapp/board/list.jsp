@@ -19,20 +19,21 @@
 		<%@page import="java.util.ArrayList"%>
 		<%@page import="java.util.List"%>
 		<%
-		List<Mvcboard2_dto> mvc2_list = new ArrayList<Mvcboard2_dto>();
 		
-		mvc2_list = (ArrayList<Mvcboard2_dto>)request.getAttribute("mvc2_list"); //request.getAttribute 는 Object를 리턴함
-		
-		Mvcboard2_dto[] m_arr = mvc2_list.toArray(new Mvcboard2_dto[0]);
-		
-		for(int i = 0; i<m_arr.length;i++){
+
+				List<Mvcboard2_dto> mvc2_list = new ArrayList<Mvcboard2_dto>();
+				
+				mvc2_list = (ArrayList<Mvcboard2_dto>)request.getAttribute("mvc2_list"); //request.getAttribute 는 Object를 리턴함
+				
+				Mvcboard2_dto[] m_arr = mvc2_list.toArray(new Mvcboard2_dto[0]);
+				
+				for(int i = 0; i<m_arr.length;i++){
 			out.print("<tr><td>"+m_arr[i].getBno()+"</td>" );
 			out.print("<td><a href='Bdetail?bno="+m_arr[i].getBno()+"'>"+m_arr[i].getTitle()+"</a></td>" );
 			out.print("<td>"+ m_arr[i].getBname()+"</td>" );
 			out.print("<td>"+m_arr[i].getBdate()+"</td>" );
 			out.print("<td>"+m_arr[i].getBhit()+"</td></tr>" );
-		}
-		
+				}
 		%> 
 		
 <!-- 			<tr><td>1</td><td><a href="detail.jsp">첫번재 글쓰기입니다.</a></td>

@@ -123,13 +123,11 @@
 
 				<Context docBase="JSPstudy" path="/JSPstudy"
 					reloadable="true" source="org.eclipse.jst.jee.server:JSPstudy">
-
 					<Resource auth="Container"
 						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
 						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
 						password="1234" type="javax.sql.DataSource"
 						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
-
 				</Context>
 
 				<Context docBase="milk_stmt" path="/milk_stmt"
@@ -164,9 +162,28 @@
 						password="1234" type="javax.sql.DataSource"
 						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
 				</Context>
-				
+
 				<Context docBase="milk_servlet" path="/milk_servlet"
 					reloadable="true" source="org.eclipse.jst.jee.server:milk_servlet">
+					<Resource auth="Container"
+						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
+						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
+				</Context>
+
+
+				<Context docBase="board_front_jinwoo"
+					path="/board_front_jinwoo" reloadable="true"
+					source="org.eclipse.jst.jee.server:board_front_jinwoo">
+					<Resource auth="Container"
+						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
+						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
+				</Context>
+				<Context docBase="board_front" path="/board_front"
+					reloadable="true" source="org.eclipse.jst.jee.server:board_front">
 					<Resource auth="Container"
 						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
 						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
