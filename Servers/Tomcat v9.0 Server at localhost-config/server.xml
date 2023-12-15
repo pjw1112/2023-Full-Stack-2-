@@ -172,7 +172,6 @@
 						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
 				</Context>
 
-
 				<Context docBase="board_front_jinwoo"
 					path="/board_front_jinwoo" reloadable="true"
 					source="org.eclipse.jst.jee.server:board_front_jinwoo">
@@ -184,6 +183,16 @@
 				</Context>
 				<Context docBase="board_front" path="/board_front"
 					reloadable="true" source="org.eclipse.jst.jee.server:board_front">
+					<Resource auth="Container"
+						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
+						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
+				</Context>
+				<Context docBase="C:\upload" path="/upload"
+					reloadable="true" />
+				<Context docBase="board_img" path="/board_img"
+					reloadable="true" source="org.eclipse.jst.jee.server:board_img">
 					<Resource auth="Container"
 						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
 						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
