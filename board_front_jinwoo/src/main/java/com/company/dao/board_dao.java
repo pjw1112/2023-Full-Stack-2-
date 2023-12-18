@@ -10,24 +10,99 @@ import java.util.ArrayList;
 import com.company.dbmanager.DBManager;
 import com.company.dto.Board_dto;
 
+
 public class board_dao {
 
-	public int total() {
-		int total = 0;
+	public int totalcnt() {
+		int result_int = -1;
+
 		DBManager db = new DBManager();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		conn = db.getConnection();
+		
 		String sql = "select count(*) from board";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				result_int = rset.getInt("count(*)");
+			}
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			if (rset != null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return result_int;
+	}
+	
+	
+	
+	
+	public ArrayList<Board_dto> list10(int pstartno) {
+		ArrayList<Board_dto> board_list = new ArrayList<Board_dto>();
+
+		DBManager db = new DBManager();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		conn = db.getConnection();
+
+		String sql = "select * from Boarditem order by ino desc limit ?,10;";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pstartno);
 			rset = pstmt.executeQuery();
 
+			
+			
 			while (rset.next()) {
-				Board_dto.setBno(rset.getInt("bno"));
+				
+				
+						Board_dto board_dto = new Board_dto();
+						board_dto.setBno(rset.getInt("bno"));
+						board_dto.setBname(rset.getString("bname"));
+						board_dto.setBpass(rset.getString("bpass"));
+						board_dto.setTitle(rset.getString("btitle"));
+						board_dto.setBcontent(rset.getString("bcontent"));
+						board_dto.setBdate(rset.getString("bdate"));
+						board_dto.setBhit(rset.getInt("bhit"));
+						board_dto.setBip(rset.getString("bip"));
 
+						board_list.add(board_dto);
 			}
 
 		} catch (SQLException e) {
@@ -63,8 +138,9 @@ public class board_dao {
 
 		}
 
-		return Board_list;
+		return board_list;
 	}
+
 	
 	
 	

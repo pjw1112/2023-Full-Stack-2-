@@ -21,9 +21,10 @@ public class BTotal implements BAction {
 		PrintWriter out = response.getWriter();
 
 		board_dao dao = new board_dao();
-	
-		if (dao.total() != null) {
-			out.print("<script>alert('실패'); location.href='list.do';</script>"); //history.go(-1) 써도 됨
+
+		if (dao.totalcnt() == -1) {
+			out.print("<script>alert('실패'); location.href='list.do';</script>"); // history.go(-1) 써도 됨
 			return;
 		}
+	}
 }

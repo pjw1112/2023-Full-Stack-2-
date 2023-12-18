@@ -138,5 +138,77 @@
 	</div>
 	<!-- div container -->
 	<!-- div container -->
+
+
+
+
+	<!-- div container -->
+	<!-- div container -->
+	<div class="container  panel panel-warning">
+		<h3 class="panel-heading">아작스로 중복 아이디 검사하기</h3>
+
+		<pre>
++----+---------------+------+
+| no | name          | age  |
++----+---------------+------+
+|  1 | John Doe      |   25 |
+|  2 | Jane Smith    |   30 |
+|  3 | Bob Johnson   |   22 |
+|  4 | Alice Lee     |   38 |
+|  5 | Charlie Brown |   35 |
+|  6 | David White   |   40 |
+|  7 | Eva Miller    |   26 |
+|  8 | Frank Wilson  |   32 |
+|  9 | Grace Davis   |   29 |
+| 10 | Henry Harris  | NULL |
++----+---------------+------+
+		</pre>
+
+		<form action="#" id="form" method="post">
+			<fieldset>
+
+				<div class="form-group">
+					<label for="id">ID : </label> <input type="text" id="id" name="id" class="form-control" />
+				</div>
+
+
+				<div class="form-group">
+					<a type="submit" id="submit" class="btn btn-danger ">제출</a>
+				</div>
+				<div class="form-group result">
+					
+				</div>
+			</fieldset>
+		</form>
+
+
+
+		<script>
+		
+		 $("#submit").on("click", () => {
+			
+			$.ajax({
+				 url:"${pageContext.request.contextPath}/IdCheck", //경로
+				 type:"get", //get, post
+				 data:{"id" : $("#id").val()}, 
+				 dataType:"text", // text, json, xml
+				 success: function(data){ 
+					 $(".result").html(data);
+					
+				 }, // 성공시 처리
+				 
+				 error: function(xhr, textStatus, errorThrown){  
+					 $(".r3").html(textStatus+"(HTTP-"+xhr.status+")");
+					 
+				 } // 실패시 처리
+				 
+			 });//end $.ajax
+			 
+			 
+		 });
+		</script>
+	</div>
+	<!-- div container -->
+	<!-- div container -->
 </body>
 </html>

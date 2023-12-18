@@ -1,28 +1,23 @@
-package com.company.ajax;
+package com.company.paging;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.company.jsp040.JavaDBManager;
-
 
 /**
- * Servlet implementation class Ajax001
+ * Servlet implementation class PagingServlet
  */
-@WebServlet("/Ajax001")
-public class Ajax001 extends HttpServlet {
+@WebServlet("/PagingServlet")
+public class PagingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Ajax001() {
+    public PagingServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,25 +30,19 @@ public class Ajax001 extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		String name = request.getParameter("name");
-		String age = request.getParameter("age");
-		System.out.println("welcome"+name+"//"+age);
-		PrintWriter out = response.getWriter();
+
+		int pstartno = 0;
 		
-		JavaDBManager db = new JavaDBManager();
-		Connection conn = db.getConnection();
-		
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("db연동 성공 칸료 칸료");
-			out.println("<p>name : "+name+"</p><br>");
-			out.println("<p>age : "+age+"</p><br>");
+		if(request.getParameter("pstartno") != null) {
+			pstartno = Integer.parseInt(request.getParameter("pstartno"));
 		}
+		
+		Paging_util paging = new Paging_util(pstartno);
+		request.setAttribute("paging", paging);
+		request.getRequestDispatcher("8. paging/paging002.jsp").forward(request, response);
+		
+		
+	
 	
 	}
 
