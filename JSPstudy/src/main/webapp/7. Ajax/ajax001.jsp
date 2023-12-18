@@ -173,7 +173,7 @@
 
 
 				<div class="form-group">
-					<a type="submit" id="submit" class="btn btn-danger ">제출</a>
+					<input type="button" value="중복확인" id="submit" class="btn btn-danger ">
 				</div>
 				<div class="form-group result">
 					
@@ -186,6 +186,10 @@
 		<script>
 		
 		 $("#submit").on("click", () => {
+			 if( $("#id").val()=="" ){
+				 alert("빈칸입니다.\n 확인해주세요");
+				 return false;
+			 }
 			
 			$.ajax({
 				 url:"${pageContext.request.contextPath}/IdCheck", //경로

@@ -46,6 +46,7 @@ public class IdCheck extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		int result_int = 0;
+		String sesult_str = "<span style='color:blue'>사용가능</span>";
 
 		JavaDBManager db = new JavaDBManager();
 		Connection conn = null;
@@ -53,14 +54,14 @@ public class IdCheck extends HttpServlet {
 		ResultSet rset = null;
 		conn = db.getConnection();
 
-		String sql = "select count(*) from userinfo where name=?";
+		String sql = "select count(*) 'cnt' from userinfo where name=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {
-				result_int = rset.getInt("count(*)");
+				result_int = rset.getInt("cnt");
 			}
 
 		} catch (SQLException e) {
@@ -95,12 +96,11 @@ public class IdCheck extends HttpServlet {
 			}
 
 		}
-		if (result_int > 0) {
-			out.print("아이디 중복입니다.");
+		if (result_int == 1) {
+			sesult_str = "<span style='color:red'>중복된 아이디 입니다!</span>";
 			
-		} else{
-			out.print("가입가능한 id 입니다");
 		}
+		out.print(sesult_str);
 		System.out.println(id+"///////"+result_int);
 	}
 
