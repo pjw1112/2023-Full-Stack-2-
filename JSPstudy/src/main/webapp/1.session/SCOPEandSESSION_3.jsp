@@ -19,6 +19,7 @@
 	<div class="container  panel panel-warning">
 		<h3 class="panel-heading">SCOPEandSESSION_3 페이지</h3>
 		<%
+		
 		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
 		String address = request.getParameter("address");

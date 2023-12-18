@@ -23,13 +23,13 @@
 		<%
 		// 1. 쿠키가 설정되어 있는지 확인
 		String cookie = request.getHeader("Cookie");
-		out.print(cookie);
+		out.print(cookie+"<br><br>");
 		
 		if(cookie != null){
 			Cookie[] cookies = request.getCookies();
 			for(int i=0; i<cookies.length; i++){
-				out.print("<p>NAME : "+cookies[i].getName()+"</p>");
-				out.print("<p>VALUE : "+cookies[i].getValue()+"</p>");
+				out.print("<p>NAME : "+cookies[i].getName()+"</p><br>");
+				out.print("<p>VALUE : "+cookies[i].getValue()+"</p><br><br>");
 				
 			}
 			

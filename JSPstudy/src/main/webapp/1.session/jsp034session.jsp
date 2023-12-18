@@ -22,6 +22,8 @@
 		<p class="panel-body well">
 			<%
 			// 세션값 확인
+			out.print("세션 아이디 : " + session.getId() );
+			
 			String name = (String) session.getAttribute("name");
 			String age = (String) session.getAttribute("age");
 			if (name != null) {
