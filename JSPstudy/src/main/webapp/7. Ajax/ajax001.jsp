@@ -1,3 +1,6 @@
+<%@page import="com.google.gson.JsonParser"%>
+<%@page import="com.google.gson.JsonObject"%>
+<%@page import="com.google.gson.Gson"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -214,5 +217,123 @@
 	</div>
 	<!-- div container -->
 	<!-- div container -->
+	
+	
+	
+	
+	
+	
+	<!-- div container -->
+	<!-- div container -->
+	<div class="container  panel panel-warning">
+		<h3 class="panel-heading">아작스 전송 데이터 타입 json 사용해보기 </h3>
+<h4>step1. BASIC</h4>
+		<pre>
+{"name":"jinwoo", "age" : 37, "loc" : "양재동"}
+		</pre>
+<%
+Gson gson = new Gson();
+JsonObject job = new JsonObject();
+job.addProperty("name", "jinwoo");
+job.addProperty("age", 37);
+job.addProperty("loc", "양재동");
+
+String result = gson.toJson(job); //직렬화(?)
+out.print(result);
+
+%>
+
+<h4>step2. 위의 파일 파싱하기</h4>
+<%
+JsonParser parser = new JsonParser();
+JsonObject pjob = (JsonObject) parser.parse(result);
+
+out.print( pjob.get("name").getAsString() );
+out.print( pjob.get("age").getAsString() );
+out.print( pjob.get("loc").getAsString() );
+
+
+%>
+
+
+
+<h4>step3. ajax</h4>
+
+		<table class="table table-striped">
+			<caption>COFFEE 테이블</caption>
+			<thead>
+				<tr>
+					<th>CNO</th>
+					<th>CNAME</th>
+					<th>CPRICE</th>
+				</tr>
+			</thead>
+			<tbody class="tbody">
+				
+				
+			</tbody>
+
+		</table>
+
+
+
+
+
+		<script>
+		
+		 
+			
+			$.ajax({
+				 url:"${pageContext.request.contextPath}/Ajax002", //경로
+				 type:"get", //get, post
+				 data:"", 
+				 dataType:"json", // text, json, xml
+				 success: function(data){ 
+					 
+					 
+					 for(let i=0; i<data.length; i++){
+						 
+						 let tr = $("<tr>");
+						 let td1 = $("<td>").html(data[i].cno);
+						 let td2 = $("<td>").html(data[i].cname);
+						 let td3 = $("<td>").html(data[i].cprice);
+						 
+						 tr.append(td1).append(td2).append(td3);
+						 $(".tbody").append(tr);
+						 
+					 }
+					 
+					 
+					 
+					 
+					 console.log(data);
+					
+				 }, // 성공시 처리
+				 
+				 error: function(xhr, textStatus, errorThrown){  
+										 
+				 } // 실패시 처리
+				 
+			 });//end $.ajax
+			 
+			 
+		
+		</script>
+			 
+		 
+		
+	</div>
+	
+	<!-- div container -->
+	<!-- div container -->	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>
