@@ -203,6 +203,14 @@
 					reloadable="true" source="org.eclipse.jst.jee.server:easy_planner">
 					<Resource auth="Container"
 						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
+						maxTotal="100" maxWaitMillis="10000" name="jdbc/easy_planner"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:mysql://localhost:3306/easy_planner" username="root" />
+				</Context>
+				<Context docBase="test" path="/test" reloadable="true"
+					source="org.eclipse.jst.jee.server:test">
+					<Resource auth="Container"
+						driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30"
 						maxTotal="100" maxWaitMillis="10000" name="jdbc/mbasic"
 						password="1234" type="javax.sql.DataSource"
 						url="jdbc:mysql://localhost:3306/mbasic" username="root" />
