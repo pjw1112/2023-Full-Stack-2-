@@ -21,6 +21,7 @@ let join_box = document.querySelector(".join_box");
 
 let find_id = document.querySelector(".find_id");
 let insert_schedule = document.querySelector(".insert_schedule");
+let update_schedule = document.querySelector(".update_schedule");
 
 let background_black = document.querySelector(".black");
 let all_cancels = document.querySelectorAll(".cancel");
@@ -61,6 +62,7 @@ function cancel (){
   join_box.style.display="none";
   find_id.style.display="none";
   insert_schedule.style.display="none";
+  update_schedule.style.display="none";
 
   background_black.style.display="none";
 
@@ -157,7 +159,7 @@ pass_form.addEventListener("input", () => {
 
 
 
-  //PASS2 조건 확인
+//PASS2 조건 확인
 pass2_form.addEventListener("input", () => {
     pass_match();
   });
@@ -239,6 +241,7 @@ email_form.addEventListener("input", () =>{
 
 });
 
+//생일 입력 확인
 birth_form.addEventListener("input",() =>{
   birth_form_label_Check.innerHTML = "";
   let p = document.createElement("p");

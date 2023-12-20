@@ -161,7 +161,7 @@ public class Schedule_dao {
 			pstmt.setString(1, dto_input.getStart_date());
 			pstmt.setString(2, dto_input.getEnd_date());
 			pstmt.setString(3, dto_input.getContent());
-			pstmt.setInt(4, dto_input.getU_index());
+			pstmt.setInt(4, dto_input.getS_index());
 				
 			if (pstmt.executeUpdate() > 0) {
 				System.out.println("Schedule_dao > schedule_update > update 쿼리 문 성공");

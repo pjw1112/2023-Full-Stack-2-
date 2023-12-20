@@ -18,7 +18,7 @@ public class Users_create implements Action {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		String conpath = request.getContextPath();
+		//String conpath = request.getContextPath();
 
 		// 가입 시간 얻기
 		LocalDateTime currentDateTime = LocalDateTime.now();

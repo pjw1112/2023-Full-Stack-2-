@@ -330,6 +330,7 @@ li {
 
 .daybox:hover {
     cursor: pointer;
+    background-color: rgb(128, 255, 255);
 }
 
 .year_view_day_box {
@@ -526,7 +527,9 @@ margin-bottom: 0;
     margin-bottom: 50px;
 }
 
-.insert_schedule{
+.insert_schedule,
+.update_schedule
+{
     width: 500px;
     height: 600px;
     padding : 50px;
@@ -557,18 +560,22 @@ margin-bottom: 0;
 
 .schedule_box{
 	border-radius: 3px;
-	background-color: #FFFFE0;
+	
 	margin-bottom: 1px;
 	overflow: hidden;
 	height: 20px;
 	
 }
+.schedule_box:hover{
+	background-color: #FFFFE0;
+}
+
 
 .grid5rows{
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, 1fr);
 }
 .grid6rows{
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(6, 1fr);
 }
 
 

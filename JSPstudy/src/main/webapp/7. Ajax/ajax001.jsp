@@ -125,6 +125,10 @@
 				 dataType:"text", // text, json, xml
 				 success: function(data){ 
 					 
+					 
+					 
+					 
+					 
 					$(".r3").html(data)
 				 }, // 성공시 처리
 				 
@@ -178,9 +182,7 @@
 				<div class="form-group">
 					<input type="button" value="중복확인" id="submit" class="btn btn-danger ">
 				</div>
-				<div class="form-group result">
-					
-				</div>
+				<div class="form-group result"></div>
 			</fieldset>
 		</form>
 
@@ -217,47 +219,44 @@
 	</div>
 	<!-- div container -->
 	<!-- div container -->
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	<!-- div container -->
 	<!-- div container -->
 	<div class="container  panel panel-warning">
-		<h3 class="panel-heading">아작스 전송 데이터 타입 json 사용해보기 </h3>
-<h4>step1. BASIC</h4>
+		<h3 class="panel-heading">아작스 전송 데이터 타입 json 사용해보기</h3>
+		<h4>step1. BASIC</h4>
 		<pre>
 {"name":"jinwoo", "age" : 37, "loc" : "양재동"}
-		</pre>
-<%
-Gson gson = new Gson();
-JsonObject job = new JsonObject();
-job.addProperty("name", "jinwoo");
-job.addProperty("age", 37);
-job.addProperty("loc", "양재동");
+	</pre>
+		<%
+		Gson gson = new Gson();
+		JsonObject job = new JsonObject();
+		job.addProperty("name", "jinwoo");
+		job.addProperty("age", 37);
+		job.addProperty("loc", "양재동");
 
-String result = gson.toJson(job); //직렬화(?)
-out.print(result);
+		String result = gson.toJson(job); //직렬화(?)
+		out.print(result);
+		%>
 
-%>
+		<h4>step2. 위의 파일 파싱하기</h4>
+		<%
+		JsonParser parser = new JsonParser();
+		JsonObject pjob = (JsonObject) parser.parse(result);
 
-<h4>step2. 위의 파일 파싱하기</h4>
-<%
-JsonParser parser = new JsonParser();
-JsonObject pjob = (JsonObject) parser.parse(result);
-
-out.print( pjob.get("name").getAsString() );
-out.print( pjob.get("age").getAsString() );
-out.print( pjob.get("loc").getAsString() );
-
-
-%>
+		out.print(pjob.get("name").getAsString());
+		out.print(pjob.get("age").getAsString());
+		out.print(pjob.get("loc").getAsString());
+		%>
 
 
 
-<h4>step3. ajax</h4>
+		<h4>step3. ajax</h4>
 
 		<table class="table table-striped">
 			<caption>COFFEE 테이블</caption>
@@ -269,8 +268,8 @@ out.print( pjob.get("loc").getAsString() );
 				</tr>
 			</thead>
 			<tbody class="tbody">
-				
-				
+
+
 			</tbody>
 
 		</table>
@@ -319,21 +318,191 @@ out.print( pjob.get("loc").getAsString() );
 			 
 		
 		</script>
-			 
-		 
-		
+
+
+
 	</div>
-	
+
 	<!-- div container -->
-	<!-- div container -->	
+	<!-- div container -->
+
+
+
+
+
+
+
+	<!-- div container -->
+	<!-- div container -->
+	<div class="container  panel panel-warning">
+		<h3 class="panel-heading">AJAX-XML</h3>
+		<p class="panel-body">xml 주고받기</p>
+		<pre>
+1. 서버에 요청 
+	https://openapi.naver.com/v1/search/book.xml
 	
-	
-	
-	
-	
-	
-	
-	
-	
+2. 요청한 데이터 (xml, csv, json) 조성
+	xml, get
+	query 검색어. UTF-8
+	X-Naver-Client-Id: 9vGnJWj0aCnn1_zIkvLQ 	{애플리케이션 등록 시 발급받은 클라이언트 아이디 값}
+    X-Naver-Client-Secret: iagU143APj 			{애플리케이션 등록 시 발급받은 클라이언트 시크릿 값}
+    
+3. 요청한 데이터 일부분만 바뀌기
+
+4. 데이터 요청이 비동기 처리(다른 작업이 가능함)
+</pre>
+			<div class="form-group">
+				<label for="book">검색할 책 이름 : </label> 
+				<input type="text" id="book" name="book" class="form-control"/>
+				<input type="button" id="btn123" value="검색" class="btn btn-danger" />
+			</div>
+
+
+		<table class="table table-bordered">
+			<caption>NAVER BOOK-XML</caption>
+			<thead>
+				<tr>
+					<th scope="col">title</th>
+					<th scope="col">image</th>
+					<th scope="col">author</th>
+
+					<th scope="col">description</th>
+				</tr>
+			</thead>
+			<tbody class="jin">
+
+			</tbody>
+		</table>
+
+
+		<script>
+		
+		$("#btn123").click( function(){
+			$(".jin").html(" ");
+		$.ajax({
+		url:"${pageContext.request.contextPath}/BookSearchNaver", //경로
+		type:"get", //get, post
+		data: {"book" : $("#book").val()}, 
+		dataType:"xml", // text, json, xml
+		success: function(data){ 
+		
+		var items = data.getElementsByTagName("item");
+		for (var i = 0; i < items.length; i++) {
+		var title_xml = items[i].getElementsByTagName("title")[0].textContent;
+		var image_xml = items[i].getElementsByTagName("image")[0].textContent;
+		var author_xml = items[i].getElementsByTagName("author")[0].textContent;
+		var link_xml = items[i].getElementsByTagName("link")[0].textContent;
+		var description_xml = items[i].getElementsByTagName("description")[0].textContent;
+		
+		var imgTag = $('<img />', {
+								      src: image_xml,
+								      alt: title_xml,
+								      width: '150', // 이미지 폭
+								      height: '200' // 이미지 높이
+								     });
+		
+		var aTag = $('<a>', {
+								      href: link_xml,
+								     });
+		aTag.append(imgTag);
+		
+		let title = $("<td>").html(title_xml);
+		let image = $("<td>").append(aTag);
+		let author = $("<td>").html(author_xml);
+		let link = $("<td>").html(link_xml);
+		let description = $("<td>").html(description_xml);
+		
+		let tr =$("<tr>")
+		
+		tr.append(title).append(image).append(author).append(description);
+		$(".jin").append(tr);
+		
+		}
+		}, // 성공시 처리
+		
+		error: function(xhr, textStatus, errorThrown){  
+							 
+		} // 실패시 처리
+			 
+		});//end $.ajax
+		
+		});
+</script>
+	</div>
+	<!-- div container -->
+	<!-- div container -->
+
+
+
+
+	<!-- div container -->
+	<!-- div container -->
+	<div class="container  panel panel-warning">
+		<h3 class="panel-heading">기상청 날씨 정보</h3>
+		<p class="panel-body">XML</p>
+		<pre>
+동네예보(도표) : 서울특별시 강남구 역삼1동
+		</pre>
+
+		<table class="table table-bordered">
+			<caption>역삼동 3시간별 날씨</caption>
+			<thead>
+				<tr>
+					<th scope="col">시간</th>
+					<th scope="col">온도</th>
+					<th scope="col">날씨</th>
+					<th scope="col">풍향</th>
+				</tr>
+			</thead>
+			<tbody class="jin2">
+
+			</tbody>
+		</table>
+
+
+
+
+
+		<script>
+		
+		
+		$.ajax({
+		url:"${pageContext.request.contextPath}/Weather", //경로
+		type:"get", //get, post
+		data:"", 
+		dataType:"xml", // text, json, xml
+		success: function(data){ 
+		
+		var items = data.getElementsByTagName("data");
+		for (var i = 0; i < items.length; i++) {
+		var hour_xml = items[i].getElementsByTagName("hour")[0].textContent;
+		var temp_xml = items[i].getElementsByTagName("temp")[0].textContent;
+		var wfKor_xml = items[i].getElementsByTagName("wfKor")[0].textContent;
+		var wdKor_xml = items[i].getElementsByTagName("wdKor")[0].textContent;
+				 
+		let hour = $("<td>").html(hour_xml);
+		let temp = $("<td>").html(temp_xml);
+		let wfKor = $("<td>").html(wfKor_xml);
+		let wdKor = $("<td>").html(wdKor_xml);
+		
+		let tr =$("<tr>")
+		
+		tr.append(hour).append(temp).append(wfKor).append(wdKor);
+		$(".jin2").append(tr);
+		
+		}
+		}, // 성공시 처리
+		
+		error: function(xhr, textStatus, errorThrown){  
+							 
+		} // 실패시 처리
+			 
+		});//end $.ajax
+</script>
+	</div>
+	<!-- div container -->
+	<!-- div container -->
+
+
 </body>
 </html>

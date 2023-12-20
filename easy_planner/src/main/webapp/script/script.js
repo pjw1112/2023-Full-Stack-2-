@@ -341,6 +341,7 @@ await Get_UserAllSchedule();
 			all_schedule.forEach((json) => {
       		if(json.start_date.split('T')[0]){
 		  let start_date = json.start_date.split('T')[0];
+		  
 	  if(document.getElementById(`${start_date}`)){
 		  let target_daybox = document.getElementById(`${start_date}`);
 		  
@@ -350,6 +351,18 @@ await Get_UserAllSchedule();
     	  item.classList.add(`row${orderNum_toAdd}`);
     	  item.classList.add("schedule_box");
     	  item.innerText = json.content;
+    	  item.addEventListener("click", (event) => {
+			  
+	          update_schedule.style.display="block";
+		      background_black.style.display="block";
+		      document.querySelector("#start_date2").value = json.start_date;
+		      document.querySelector("#end_date2").value = json.end_date;
+			  document.querySelector("#content2").value = json.content;
+			  document.querySelector("#s_index").value = json.s_index;
+		  		load();
+			  
+			  	event.stopPropagation();
+		  },true);
     	  target_daybox.appendChild(item);
 		  }
 		 }
@@ -358,7 +371,7 @@ await Get_UserAllSchedule();
  	  }//end 유저 일정 view 구현
  	  
 	  
-	  /*
+	  
  	  if (view_type == "월별") {
 	  //#calendar_body 자식 요소 (daybox) 개수 세서 35개 이상이면 6줄 grid row 그 이하면 5줄 grid row 로 css 설정
  	  let numRows = Math.ceil( calendar_body.children.length / 7);
@@ -375,7 +388,7 @@ await Get_UserAllSchedule();
 		   calendar_body.classList.remove('grid5rows');
 	  	   calendar_body.classList.remove('grid6rows');
 	   }
- 	  */
+ 	  
  	  
  	  
  	  

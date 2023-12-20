@@ -2,8 +2,6 @@ package com.company.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +18,7 @@ public class Users_delete implements Action {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		String conpath = request.getContextPath();
+		//String conpath = request.getContextPath();
 		HttpSession session = request.getSession();
 		
 		Users_dao dao = new Users_dao();

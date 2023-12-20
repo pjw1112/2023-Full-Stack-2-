@@ -19,7 +19,7 @@ public class Users_read implements Action {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
-		String conpath = request.getContextPath();
+		//String conpath = request.getContextPath();
 
 		Users_dao dao = new Users_dao();
 		Users_dto dto = new Users_dto();

@@ -58,6 +58,7 @@ ip VARCHAR(50) not NULL,
 U_index INT NOT NULL,
 PRIMARY KEY (S_index),
 FOREIGN KEY (U_index) REFERENCES Users (U_index)
+on delete cascade on update cascade
 );
 
 
@@ -72,6 +73,7 @@ q_content text not NULL,
 U_index INT NOT NULL,
 PRIMARY KEY (q_index),
 FOREIGN KEY (U_index) REFERENCES Users (U_index)
+on delete cascade on update cascade
 );
 
 
@@ -85,6 +87,7 @@ a_content text not NULL,
 Q_index INT NOT NULL,
 PRIMARY KEY (A_index),
 FOREIGN KEY (Q_index) REFERENCES Inquire (Q_index)
+on delete cascade on update cascade
 );
 
 

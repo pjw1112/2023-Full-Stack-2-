@@ -38,22 +38,29 @@ public class IdCheck extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		//기본 세팅
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		//ajax로 부터 넘겨받은 data
 		String id = request.getParameter("id");
 
-		System.out.println("welcome //" + id);
-		PrintWriter out = response.getWriter();
-
+		// 테이블에 해당하는 아이디가 있으면 1 이 담길 예정인 변수 
 		int result_int = 0;
+		
+		// result_int = 0 일때 out.print로 내보낼(ajax에 전달할) html 
+		// result_int = 1 일 경우는 105번줄에 선언
 		String sesult_str = "<span style='color:blue'>사용가능</span>";
 
+		//db 커넥션
 		JavaDBManager db = new JavaDBManager();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		conn = db.getConnection();
 
+		//sql 구문
 		String sql = "select count(*) 'cnt' from userinfo where name=?";
 
 		try {
@@ -61,6 +68,8 @@ public class IdCheck extends HttpServlet {
 			pstmt.setString(1, id);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {
+				
+				//sql구문 실행으로 결과값 수령(아이디가 있으면 1, 없으면 0) 
 				result_int = rset.getInt("cnt");
 			}
 
@@ -96,12 +105,15 @@ public class IdCheck extends HttpServlet {
 			}
 
 		}
+		
+		//아이디가 있을경우 ajax로 출력할 sesult_str 수정
 		if (result_int == 1) {
 			sesult_str = "<span style='color:red'>중복된 아이디 입니다!</span>";
 			
 		}
-		out.print(sesult_str);
-		System.out.println(id+"///////"+result_int);
+		
+		out.print(sesult_str); //ajax 로 전달
+		
 	}
 
 	/**

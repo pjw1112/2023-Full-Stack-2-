@@ -289,8 +289,7 @@
                 <fieldset>
                     <div class="form-group">
                         <label for="content">일정</label>
-                        <textarea rows="5" id="content" name="content"
-                            class="form-control insert_schedule_write_form"></textarea>
+                        <textarea rows="5" id="content" name="content" class="form-control insert_schedule_write_form"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="start_date">시작 시간</label> 
@@ -301,16 +300,48 @@
                         <input type="datetime-local" id="end_date" name="end_date" class="form-control" />
                     </div>
                     <div class="form-group insert_schedule_end">
-                        <input type="submit" value="저장" class="btn btn-info"> <input type="reset" value="취소"
-                            class="btn btn-danger cancel">
-
-
-                    </div>
+                        <input type="submit" value="저장" class="btn btn-info"> 
+                        <input type="reset" value="취소" class="btn btn-danger cancel">
+					</div>
                 </fieldset>
             </form>
         </div>
     </div>
 
+
+
+
+
+
+    <!-- default display none -->
+    <div class="update_schedule">
+        <div class="subject">일정 수정</div>
+        <div class="description">일정 내용과 시작 ~ 종료 시간을 설정해주세요</div>
+        <div class="content">
+            <form action="schedule_update.do" method="post">
+                <fieldset>
+                    <div class="form-group">
+                    	<input type="hidden" id="s_index" name="s_index" class="form-control hidden" />
+                        <label for="content">일정</label>
+                        <textarea rows="5" id="content2" name="content2" class="form-control insert_schedule_write_form"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="start_date">시작 시간</label> 
+                        <input type="datetime-local" id="start_date2" name="start_date2" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="end_date">종료 시간</label> 
+                        <input type="datetime-local" id="end_date2" name="end_date2" class="form-control" />
+                    </div>
+                    <div class="form-group insert_schedule_end">
+                        <input type="submit" value="저장" class="btn btn-info"> 
+                        <a href="" class="">삭제</a>
+                        <input type="reset" value="취소" class="btn btn-danger cancel">
+					</div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 
     <div class="black"></div>
 
