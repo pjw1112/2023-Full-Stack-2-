@@ -1,14 +1,31 @@
+/* 기본 태그 */
 * {
     padding: 0;
     margin: 0;
 }
+
 textarea{
     resize: none;
 }
+
 a {
     text-decoration: none;
     color: rgb(104, 104, 104);
 }
+
+li {
+    list-style-type: none;
+}
+
+body {
+    font-family: 'MaruBuriLight';
+    color: rgb(104, 104, 104);
+    font-weight: bold;
+    position: relative;
+}
+/* 기본 태그 */
+
+
 
 a:active {
     color: rgb(104, 104, 104);
@@ -20,6 +37,8 @@ a:hover {
     opacity: 0.6;
 }
 
+
+
 /* 분리 할 것 */
 .rotate180 {
     transform: rotate(180deg);
@@ -28,18 +47,8 @@ a:hover {
 .br {
     height: 35px;
 }
-
 /* 분리 할 것 */
-body {
-    font-family: 'MaruBuriLight';
-    color: rgb(104, 104, 104);
-    font-weight: bold;
-    position: relative;
-}
 
-li {
-    list-style-type: none;
-}
 
 .wrapper {
     width: 100%;
@@ -360,11 +369,14 @@ li {
 .naver:active {
     transform: scale(0.95);
 }
+/*
 
 
 
 
 
+
+*/
 .view_like_year {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
@@ -388,11 +400,13 @@ li {
     grid-gap: 1px;
     padding: 0px;
 }
+/*
 
 
 
 
 
+*/
 .login_box {
     width: 500px;
     height: 450px;
@@ -571,6 +585,10 @@ margin-bottom: 0;
 }
 
 
+
+
+
+/* 월별 뷰 일때 5줄 6줄 처리 */
 .grid5rows{
 	grid-template-rows: repeat(5, 1fr);
 }

@@ -1,6 +1,10 @@
 package Json_Ex;
 
+import java.util.Map;
+
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class Json002_jsonArrays {
@@ -29,8 +33,13 @@ public class Json002_jsonArrays {
 		arr.add(job2);
 		arr.add(job3);
 		
-		System.out.println(arr);
-		
+		arr.forEach(t -> {
+			
+	for (Map.Entry<String, JsonElement> entry : ((JsonObject)t).entrySet()) {
+        System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+    }
+			
+		});
 		
 		
 		
