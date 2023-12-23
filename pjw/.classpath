@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator.User -2023LEGBS/Desktop/pjw/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jin/eclipse-workspace/JAR파일 모음/gson-2.2.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

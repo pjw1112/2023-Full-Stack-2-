@@ -1,18 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-   
-display : flex;
-
+    body {
+      width: 100wv;
+      height: 90vh;
+      border: 1px solid black;
+    }
   </style>
+  <!-- Bootstrap and Jquery -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- Bootstrap and Jquery -->
+
+
 </head>
+
 <body>
-  
+ 
+  <script src="/path/to/dist/jquery.letItSnow.min.js"></script>
   <script>
-    console.log( ('b'+'a'+ +'a'+'a') );
+    $('body').letItSnow({
+      // color code or CSS class(es)
+      background: "#007d79",
+    });
+
+
+    $('body').letItSnow({
+
+      flake: {
+
+        // Default: <a href="https://www.jqueryscript.net/tags.php?/Bootstrap/">Bootstrap</a> Icons
+        html: '<a href="https://www.jqueryscript.net/tags.php?/Bootstrap/">Bootstrap</a>',
+
+        // min snowflake size
+        minSize: 5,
+
+        // max snowflake size
+        maxSize: 20,
+
+      }
+
+    });
+
+
+    $('body').letItSnow({
+
+      // smooth, less, medium or much
+      quantity: "smooth",
+
+      // snowflake color
+      colors: ["#DDDDDD", "#EEEEEE"],
+
+      // falling velocity
+      speed: 0.75,
+
+      // time in milliseconds
+      refresh: 50,
+
+    });
   </script>
 </body>
+
 </html>
