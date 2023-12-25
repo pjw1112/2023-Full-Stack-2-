@@ -4,17 +4,27 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1" >
+
+<!--  네이버 마루부리 글씨체 css -->
+<link rel="stylesheet" href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" >
+<link href="https://hangeul.pstatic.net/hangeul_static/css/NanumJungHagSaeng.css" rel="stylesheet">
+<!--  부트스트랩 & 제이쿼리 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" >
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet">
-<link rel="stylesheet" href="css/basic.css">
-<link rel="stylesheet" href="css/media_query.css">
+<!--  폰트어썸 -->
+<script src="https://kit.fontawesome.com/5081dee0c3.js" crossorigin="anonymous"></script>
+<!--  내가 만든 script -->
 <script src="script/session.js" defer></script>
-<script src="script/join_form_script.js" defer></script>
-<script src="script/script.js" defer></script>
+<script src="script/form_script.js" defer></script>
+<script src="script/basic_script.js" defer></script>
+
+<!--  내가 만든 css -->
+<link rel="stylesheet" href="css/basic.css" >
+<link rel="stylesheet" href="css/media_query.css" >
+
 <title>My Calendar</title>
 </head>
 <body>
@@ -136,7 +146,14 @@
                 </div>
                 <div class="list_column"></div>
                 <div id="calendar_body"></div>
-                <div style="height: 100px"></div>
+                <div style="height: 100px; padding : 20px;">
+                	  	<div class="form-group">
+					    
+					    <div class="">
+					      <input type="text" class="form-control" id="easy_prompt" placeholder="EZ prompt">
+					    </div>
+
+                </div>
             </div>
 
         </div>
@@ -160,8 +177,14 @@
                 </div>
 
                 <div class="form-group">
+                	<div>
+                    <input type="checkbox" id="remember_id" name="remember_id" />
+                    <label for="remember_id"> 아이디 기억하기</label>
+                    </div>
+                	<div>
                     <input type="checkbox" id="remember_login" name="remember_login" />
-                    <label for="remember_login">로그인 유지하기</label>
+                    <label for="remember_login"> 로그인 유지하기</label>
+                    </div>
                 </div>
                 <br>
                 <div class="form-group">
@@ -300,8 +323,8 @@
                         <input type="datetime-local" id="end_date" name="end_date" class="form-control" />
                     </div>
                     <div class="form-group insert_schedule_end">
-                        <input type="submit" value="저장" class="btn btn-info"> 
-                        <input type="reset" value="취소" class="btn btn-danger cancel">
+                        <input type="submit" value="저장" class="btn btn-info cancel btn_margin_left"> 
+                        <a href="#" class="btn btn-danger cancel">취소</a>
 					</div>
                 </fieldset>
             </form>
@@ -335,8 +358,8 @@
                     </div>
                     <div class="form-group insert_schedule_end">
                         <input type="submit" value="저장" class="btn btn-info"> 
-                        <a href="" class="">삭제</a>
-                        <input type="reset" value="취소" class="btn btn-danger cancel">
+                        <a href="schedule_delete.do" class="btn btn-danger schedule_delete btn_margin_left">삭제</a>
+                        <input type="reset" value="취소" class="btn btn-danger cancel btn_margin_left">
 					</div>
                 </fieldset>
             </form>
@@ -345,6 +368,14 @@
 
     <div class="black"></div>
 
+<!-- 제미나이 ai api -->
+<!-- 제미나이 ai api -->
+<!-- 제미나이 ai api -->
+<script type="importmap">
+{"imports": {"@google/generative-ai": "https://esm.run/@google/generative-ai"}}
+</script>
+<script type="module" src="script/gemini_script.js"></script>
+<script src="script/inthesea.js" type="module" ></script>
 
 </body>
 

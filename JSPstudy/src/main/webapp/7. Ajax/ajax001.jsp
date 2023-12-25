@@ -448,10 +448,11 @@
 			<caption>역삼동 3시간별 날씨</caption>
 			<thead>
 				<tr>
-					<th scope="col">시간</th>
-					<th scope="col">온도</th>
+					<th scope="col">날짜</th>
 					<th scope="col">날씨</th>
-					<th scope="col">풍향</th>
+					<th scope="col">최저기온</th>
+					<th scope="col">최고기온</th>
+					<th scope="col">강수확률</th>
 				</tr>
 			</thead>
 			<tbody class="jin2">
@@ -473,6 +474,36 @@
 		dataType:"xml", // text, json, xml
 		success: function(data){ 
 		
+			
+			// <location wl_ver="3"> 태그를 가져오기
+			var datas = data.getElementsByTagName("location")[0].getElementsByTagName("data");
+
+			for (var i = 0; i < datas.length; i++) {
+				var date_xml = datas[i].getElementsByTagName("tmEf")[0].textContent.replace(" ", "T");
+				var weather_xml = datas[i].getElementsByTagName("wf")[0].textContent;
+				var tmax_xml = datas[i].getElementsByTagName("tmn")[0].textContent;
+				var tmin_xml = datas[i].getElementsByTagName("tmx")[0].textContent;
+				var rnst_xml = datas[i].getElementsByTagName("rnSt")[0].textContent;	
+				
+				let date = $("<td>").html(date_xml);
+				let weather = $("<td>").html(weather_xml);
+				let tmax = $("<td>").html(tmax_xml);
+				let tmin = $("<td>").html(tmin_xml);
+				let rnst = $("<td>").html(rnst_xml);
+				
+				let tr =$("<tr>")
+				
+				tr.append(date).append(weather).append(tmax).append(tmin).append(rnst);
+				$(".jin2").append(tr);
+				
+				}
+			
+			
+			
+			
+			
+			
+		/*	
 		var items = data.getElementsByTagName("data");
 		for (var i = 0; i < items.length; i++) {
 		var hour_xml = items[i].getElementsByTagName("hour")[0].textContent;
@@ -491,6 +522,7 @@
 		$(".jin2").append(tr);
 		
 		}
+		*/
 		}, // 성공시 처리
 		
 		error: function(xhr, textStatus, errorThrown){  

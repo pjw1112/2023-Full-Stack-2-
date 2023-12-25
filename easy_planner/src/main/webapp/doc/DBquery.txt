@@ -115,6 +115,7 @@ where U_id = ?
 delete from Users
 where U_id=?
 
+
 4. 일정 추가
 INSERT INTO Schedule (start_date, end_date, content, create_date, ip, U_index) VALUES (?,?,?,?,?,?)
 
@@ -126,6 +127,7 @@ delete from Schedule where s_index=?
 
 7. 일정 가져 오기 (화면에 출력해주기 위해)
 select * from Schedule where U_id = ?
+
 
 8. 문의 추가
 INSERT INTO Inquire (q_index, q_date, q_content, a_date, a_content, complete, Users_U_index) VALUES (?,?,?,?,?,?,?);

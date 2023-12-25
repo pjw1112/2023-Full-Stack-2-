@@ -18,8 +18,7 @@
 		
 		<p><a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=5311dcef4df09cce6029d72479addf8c&redirect_uri=http://localhost:8080/JSPstudy/Kakao_login_all"><img alt="" src="images/kakao_login_medium_narrow.png"></a></p>
 		
-		
-		
+				
 	</div>
 	<!-- div container -->
 	<!-- div container -->

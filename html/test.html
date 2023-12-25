@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title></title>
+ 
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: "Malgun Gothic", dotum, sans-serif;
+        }
+        li {
+            list-style-type: none;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div>
+ 
+ 
+ <input type="button" value="버튼" class="checkJson">
+    </div>
+ <script>
+
+// let jsonStr = '{"name" : ["홍길동","이순신","임꺽정"]}';
+// let jsoninfo = JSON.parse(jsonStr);
+
+// let output = "회원 이름 : ";
+
+// for(let i in jsoninfo.name){
+// console.log(output+jsoninfo.name[i]);
+
+let my = {
+"name" : "jinwoo",
+"age" : 37,
+"gender" : "male",
+"height" : 173,
+"arr" : [12,13,"hi",15,"십육"]
+};
+
+for (let i in my.arr){
+    console.log(i);
+};
+console.log(my.name);
+ </script>
+</body>
+</html>
