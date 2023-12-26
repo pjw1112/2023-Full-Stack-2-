@@ -40,7 +40,7 @@ public class Weather extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 
-		String urlapi = "https://www.weather.go.kr/w/rss/dfs/hr1-forecast.do?zone=1168064000";
+		String urlapi = "https://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=109";
 
 		URL url = null;
 		HttpURLConnection conn = null;

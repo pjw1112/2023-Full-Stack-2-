@@ -3,6 +3,7 @@ package com.company.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import com.company.service.Action;
 import com.company.service.Schedule_create;
+import com.company.service.Schedule_delete;
 import com.company.service.Schedule_update;
+import com.company.service.Users_Cookie_login;
 import com.company.service.Users_create;
 import com.company.service.Users_delete;
 import com.company.service.Users_read;
@@ -51,11 +54,41 @@ public class FrontController extends HttpServlet {
 
 		if (path.equals("/view.do")) { // index에서 메인(view.jsp) 페이지로
 
+			
+			Cookie[] cookies = request.getCookies();
+	        if (cookies != null) {
+	            for (Cookie cookie : cookies) {
+	                if ("remember_login".equals(cookie.getName())) {
+	                	
+	                	request.setAttribute("cookie_login_id", cookie.getValue());
+	                	
+	                	controller = new Users_Cookie_login();
+	                	controller.execu(request, response);
+	                	
+	                    cookie.setMaxAge(10 * 24 * 60 * 60);
+	                    response.addCookie(cookie);
+	                }
+	            }
+	        }
+			
+			
+			
+			
+			
+			
+			
 			url= "pages/view.jsp";
 			request.getRequestDispatcher(url).forward(request, response);
-			
 			System.out.println("세션에 저장된 id 값 : " + session.getAttribute("login_id")); 
-		}else if (path.equals("/users_join.do")) { // 유저 회원가입
+		}
+/*		
+		
+		
+		
+		
+		
+*/	
+		else if (path.equals("/users_join.do")) { // 유저 회원가입
 
 			controller = new Users_create();
 			controller.execu(request, response);
@@ -73,6 +106,17 @@ public class FrontController extends HttpServlet {
 
 			session.invalidate();
 			
+			// 쿠키 삭제
+	        Cookie[] cookies = request.getCookies();
+	        if (cookies != null) {
+	            for (Cookie cookie : cookies) {
+	                if ("remember_login".equals(cookie.getName())) {
+	                    cookie.setMaxAge(0); // 쿠키 삭제
+	                    response.addCookie(cookie);
+	                }
+	            }
+	        }
+	        
 			msg ="로그 아웃";
 
 		}else if (path.equals("/users_info.do")) { // 유저 내 정보 보기 페이지로 이동
@@ -95,7 +139,15 @@ public class FrontController extends HttpServlet {
 			
 			msg ="회원 정보가 삭제되었습니다.";
 		
-		}else if (path.equals("/schedule_create.do")) { // 스케쥴 생성 
+		}
+/*		
+		
+		
+		
+		
+		
+*/			
+		else if (path.equals("/schedule_create.do")) { // 스케쥴 생성 
 
 			if(request.getSession().getAttribute("login_U_index")!= null) {
 			controller = new Schedule_create();
@@ -105,13 +157,20 @@ public class FrontController extends HttpServlet {
 			}else {
 			msg ="로그인 해주세요.";	
 			}
-		}else if (path.equals("/schedule_update.do")) { // 스케쥴 생성 
+		}else if (path.equals("/schedule_update.do")) { // 스케쥴 수정 
 
 			
 			controller = new Schedule_update();
 			controller.execu(request, response);
 			
 			msg ="스케쥴 수정 성공!";
+			
+		}else if (path.equals("/schedule_delete.do")) { // 스케쥴 삭제 
+
+			controller = new Schedule_delete();
+			controller.execu(request, response);
+			
+			msg ="스케쥴 삭제 성공!";
 			
 		}
 		

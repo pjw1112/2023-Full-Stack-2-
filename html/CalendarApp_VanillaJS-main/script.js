@@ -1,7 +1,6 @@
 let nav = 0;
 let clicked = null;
 let events = localStorage.getItem("events")? JSON.parse(localStorage.getItem("events")): [];
-console.log(events);
 
 const calendar = document.getElementById("calendar");
 const backDrop = document.getElementById("modalBackDrop");

@@ -74,6 +74,71 @@ public class Users_dao {
 		return dto_output;
 	}
 
+	
+	public Users_dto user_read_byCookie(Users_dto dto_input) {
+		Users_dto dto_output = null;
+		
+		DBManager db = new DBManager();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		conn = db.getConnection();
+		String sql = "select * from users where u_id=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto_input.getU_id());
+			
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				System.out.println("rest.next()안쪽 진입");
+				dto_output = new Users_dto();
+				dto_output.setU_index( rset.getInt("u_index"));
+				dto_output.setU_id( rset.getString("u_id"));
+				dto_output.setU_pass( rset.getString("u_pass"));
+				dto_output.setU_email( rset.getString("u_email"));
+				dto_output.setU_birth( rset.getString("u_birth"));
+				dto_output.setU_join_date( rset.getString("u_join_date"));
+				dto_output.setU_grade( rset.getInt("u_grade"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			if (rset != null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		return dto_output;
+	}
+	
 	public int user_create(Users_dto dto_input) {
 		int result_int = -1;
 
