@@ -90,21 +90,15 @@ public class Kakao_login2 extends HttpServlet {
 		
         if(obj != null) {//카카오 로긴 성공 > 코드, 아이디 모두 수령 완료
         	
-        	String inputString = obj.get("id").getAsString();
-        	System.out.println("값 : "+inputString+" , 타입 : "+inputString.getClass());
-            // 정규표현식을 사용하여 숫자 형식이 아닌 문자를 제거
-            String numericOnly = inputString.replaceAll("[^0-9]", "");
-            System.out.println("값 : "+numericOnly+" , 타입 : "+inputString.getClass());
-        int kakao_id = Integer.parseInt("3235948685");
-        
+        String kakao_id = obj.get("id").getAsString();
         String kakao_email = obj.get("kakao_account").getAsJsonObject().get("email").getAsString();
         String birthday = obj.get("kakao_account").getAsJsonObject().get("birthday").getAsString();
         birthday = "2000-"+birthday.substring(0, 2)+"-"+birthday.substring(2);
         
         Users_dao dao = new Users_dao();
         Users_dto dto = new Users_dto();
-        dto.setU_kakaoid(kakao_id);
         
+        dto.setU_kakaoid(kakao_id);
         dto = dao.user_read_byKakao(dto);
         
         if(dto == null) { //카카오 로긴 처음 하는거라서 아이디 생성
@@ -115,7 +109,7 @@ public class Kakao_login2 extends HttpServlet {
     		String formattedDateTime = currentDateTime.format(formatter);
     		
     		dto = new Users_dto();
-    		dto.setU_id(Integer.toString(kakao_id));
+    		dto.setU_id(kakao_id);
     		dto.setU_pass("1234");
     		dto.setU_email(kakao_email);
     		dto.setU_birth(birthday);
