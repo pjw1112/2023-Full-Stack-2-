@@ -9,6 +9,7 @@ public class Users_dto {
 	private String u_birth;
 	private String u_join_date;
 	private int u_grade;
+	private int u_kakaoid;
 
 	public Users_dto() {
 		super();
@@ -86,6 +87,14 @@ public class Users_dto {
 
 	public void setU_grade(int u_grade) {
 		this.u_grade = u_grade;
+	}
+
+	public int getU_kakaoid() {
+		return u_kakaoid;
+	}
+
+	public void setU_kakaoid(int u_kakaoid) {
+		this.u_kakaoid = u_kakaoid;
 	}
 
 }

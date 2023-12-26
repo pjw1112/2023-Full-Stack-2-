@@ -189,8 +189,11 @@
                 <br>
                 <div class="form-group">
                     <input type="submit" value="로그인" class="btn btn-danger btn-block ">
+                    <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=5311dcef4df09cce6029d72479addf8c&redirect_uri=http://localhost:8080/easy_planner/Kakao_login" id="kakao_login_button" class="btn btn-success btn-warning ">카카오로 로그인</a>
                     <a href="#" id="naver_login_button" class="btn btn-success btn-block ">네이버로 로그인</a>
+                    
                 </div>
+                
                 <div class="form-group find_id_pass">
                     <span class="find_id_button"><a href="#">아이디 찾기</a></span> <span class="find_pass_button"><a
                             href="#">비밀번호 찾기</a></span>
@@ -375,7 +378,7 @@
 {"imports": {"@google/generative-ai": "https://esm.run/@google/generative-ai"}}
 </script>
 <script type="module" src="script/gemini_script.js"></script>
-<script src="script/inthesea.js" type="module" ></script>
+<!--<script src="script/inthesea.js" type="module" ></script>-->
 
 </body>
 
