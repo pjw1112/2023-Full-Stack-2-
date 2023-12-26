@@ -76,7 +76,7 @@ function deleteEvent() {
 
 function load() {
   const dt = new Date();
-console.log(dt);
+
   if (nav !== 0) {
     dt.setMonth(new Date().getMonth() + nav);
   }
