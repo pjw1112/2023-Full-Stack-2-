@@ -17,7 +17,7 @@
 <!--  폰트어썸 -->
 <script src="https://kit.fontawesome.com/5081dee0c3.js" crossorigin="anonymous"></script>
 <!--  내가 만든 script -->
-<script src="script/session.js" defer></script>
+<script src="script/json_list.js" defer></script>
 <script src="script/form_script.js" defer></script>
 <script src="script/basic_script.js" defer></script>
 

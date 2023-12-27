@@ -42,6 +42,7 @@ let birth_ok = false;
 
 // 가입하기 버튼 클릭시 가입하기창 팝업
 join_click.addEventListener("click" , () => {
+	
   join_box.style.display="initial";
   background_black.style.display="initial";
   
