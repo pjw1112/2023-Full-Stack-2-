@@ -290,11 +290,6 @@ function load() {
 				e.classList.remove("select");
 			}
 		});
-
-
-
-
-
 	}
 
 	let dayboxs = document.querySelectorAll(".daybox");
@@ -322,7 +317,73 @@ function load() {
 
 
 	//각종 공휴일, 기념일 표시 추가
+	if(view_type != "년별"){
+		dayboxs.forEach((box) => { 
+	
+			//aniversaries_2023
+			let allkeys = Object.keys(aniversaries_2023);
+			allkeys.forEach(key => {
+			if(key==box.id){
+				let orderNum_toAdd = box.children.length;
+				let item = document.createElement("div");
+					    item.classList.add(`row${orderNum_toAdd}`);
+						item.classList.add("aniversaries");
+						item.style.color="black";
+						item.innerText = aniversaries_2023[key];
+						box.appendChild(item);
+				  		}
+  					});
+  					
+  			//aniversaries_2024
+			allkeys = Object.keys(aniversaries_2024);
+			allkeys.forEach(key => {
+			if(key==box.id){
+				let orderNum_toAdd = box.children.length;
+				let item = document.createElement("div");
+					    item.classList.add(`row${orderNum_toAdd}`);
+						item.classList.add("aniversaries");
+						item.style.color="black";
+						item.innerText = aniversaries_2024[key];
+						box.appendChild(item);
+				  		}
+  					});		
+	
+			//holiday_2023
+			allkeys = Object.keys(holiday_2023);
+			allkeys.forEach(key => {
+			if(key==box.id){
+				let orderNum_toAdd = box.children.length;
+				let item = document.createElement("div");
+					    item.classList.add(`row${orderNum_toAdd}`);
+						
+						item.innerText = holiday_2023[key];
+						box.appendChild(item);
+						box.classList.add("holiday");
+				  		}
+  					});	
 
+
+			//holiday_2024
+			allkeys = Object.keys(holiday_2024);
+			allkeys.forEach(key => {
+			if(key==box.id){
+				let orderNum_toAdd = box.children.length;
+				let item = document.createElement("div");
+					    item.classList.add(`row${orderNum_toAdd}`);
+						
+						item.innerText = holiday_2024[key];
+						box.appendChild(item);
+						box.classList.add("holiday");
+				  		}
+  					});	
+
+
+
+
+
+
+		});
+	}
 
 
 

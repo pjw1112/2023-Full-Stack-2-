@@ -8,35 +8,157 @@
     <title></title>
 
     <style>
-        @font-face {
-            font-family: 'NPSfontBold';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        * {font-family: 'NPSfontBold';
-            padding: 0;
-            margin: 0;
-        }
-
         body {
-            font-family: "Malgun Gothic", dotum, sans-serif;
+            margin: 0;
+            overflow: hidden;
         }
 
-        li {
-            list-style-type: none;
+        .fish-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #87CEEB;
+            /* 바다 색상 */
+        }
+
+        .fish1 {
+            font-size: 40px;
+            position: absolute;
+            opacity: 0.5;
+            animation: swim 100s linear infinite;
+        }
+
+        .fish2 {
+            font-size: 100px;
+            position: absolute;
+            opacity: 0.5;
+            animation: swim2 100s linear infinite;
+        }
+
+        @keyframes swim {
+
+            0% {
+                transform: translateX(0px) translateY(100px) rotateY(180deg);
+            }
+
+            20% {
+                transform: translateX(1200px) translateY(260px) rotateY(180deg);
+
+            }
+
+            21% {
+                transform: translateX(1150px) translateY(320px) rotateY(0deg);
+
+            }
+
+            40% {
+                transform: translateX(50px) translateY(580px);
+            }
+
+            41% {
+                transform: translateX(70px) translateY(590px) rotateY(180deg);
+            }
+
+            60% {
+                transform: translateX(200px) translateY(720px) rotateY(180deg);
+            }
+
+            80% {
+                transform: translateX(1200px) translateY(800px) rotateY(180deg);
+            }
+
+            81% {
+                transform: translateX(1150px) translateY(790px) rotateY(0deg);
+            }
+
+            100% {
+                transform: translateX(0px) translateY(100px);
+            }
+        }
+
+        @keyframes swim2 {
+            0% {
+                transform: translateX(500px) translateY(500px);
+            }
+
+            20% {
+                transform: translateX(500px) translateY(700px) rotateY(180deg);
+            }
+
+            21% {
+                transform: translateX(250px) translateY(900px) rotateY(0deg);
+            }
+
+            40% {
+                transform: translateX(750px) translateY(500px);
+            }
+
+            41% {
+                transform: translateX(300px) translateY(300px) rotateY(180deg);
+            }
+
+            60% {
+                transform: translateX(800px) translateY(800px) rotateY(180deg);
+            }
+
+            80% {
+                transform: translateX(1000px) translateY(200px) rotateY(180deg);
+            }
+
+            81% {
+                transform: translateX(700px) translateY(400px) rotateY(0deg);
+            }
+
+            100% {
+                transform: translateX(500px) translateY(500px);
+            }
+        }
+
+        .moving-element {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            /* 무작위 위치로 이동할 DOM 요소의 색상 */
+            border-radius: 50%;
+            transition: transform 10s ease;
+            /* 좌우반전 효과를 부드럽게 만들기 위한 트랜지션 */
         }
     </style>
 </head>
 
 <body>
-    <div>
 
-<h1>안녕하세요 반갑습니다</h1>
 
-    </div>
+    <div class="moving-element">🐟</div>
+
+
 
 </body>
+
+<script>
+    const movingElement = document.querySelector('.moving-element');
+
+    function moveElement() {
+        const currentX = movingElement.offsetLeft;
+        const currentY = movingElement.offsetTop;
+
+        const newX = currentX + Math.random() * 700 - 300; // 현재 위치에서 반경 300px~1000px 이내의 무작위 x 값
+        const newY = currentY + Math.random() * 700 - 300; // 현재 위치에서 반경 300px~1000px 이내의 무작위 y 값
+
+        const boundedX = Math.min(Math.max(newX, 0), 1800 - movingElement.offsetWidth); // 가로 1800px 범위 내에 위치하도록 보정
+        const boundedY = Math.min(Math.max(newY, 0), 900 - movingElement.offsetHeight); // 세로 900px 범위 내에 위치하도록 보정
+
+        const deltaX = boundedX - currentX;
+
+        movingElement.style.transform = `translate(${deltaX}px, ${boundedY - currentY}px) scaleX(${deltaX  < 0 ? 1 : -1})`;
+
+        setTimeout(() => {
+            moveElement();
+        }, 5000);
+    }
+
+    moveElement();
+</script>
 
 </html>

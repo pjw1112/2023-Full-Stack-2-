@@ -17,7 +17,7 @@
 <!--  폰트어썸 -->
 <script src="https://kit.fontawesome.com/5081dee0c3.js" crossorigin="anonymous"></script>
 <!--  내가 만든 script -->
-<script src="script/session.js" defer></script>
+<script src="script/json_list.js" defer></script>
 <script src="script/form_script.js" defer></script>
 <script src="script/basic_script.js" defer></script>
 
@@ -26,12 +26,508 @@
 <link rel="stylesheet" href="css/media_query.css" >
 
 <title>My Calendar</title>
+<style type="text/css">
+  .fish1 {
+        font-size: 40px;
+      position: absolute;
+      opacity: 0.6;
+      animation: swim 50s linear infinite;
+      z-index : 1;
+    }
+
+    .fish2 {
+        font-size: 200px;
+      position: absolute;
+      opacity: 0.3;
+      animation: swim2 90s linear infinite;
+      z-index : 1;
+    }
+    .fish3 {
+        font-size: 50px;
+      position: absolute;
+      opacity: 0.4;
+      animation: swim3 100s linear infinite;
+      z-index : 1;
+    }
+    .fish4 {
+        font-size: 60px;
+      position: absolute;
+      opacity: 0.4;
+      animation: swim4 90s linear infinite;
+      z-index : 1;
+    }
+    .fish5 {
+        font-size: 40px;
+      position: absolute;
+      opacity: 0.4;
+      animation: swim5 110s linear infinite;
+      z-index : 1;
+    }
+    .fish6 {
+        font-size: 70px;
+      position: absolute;
+      opacity: 0.6;
+      animation: swim6 80s linear infinite;
+      z-index : 1;
+    }
+    .fish7 {
+        font-size: 30px;
+      position: absolute;
+      opacity: 0.6;
+      animation: swim7 70s linear infinite;
+      z-index : 1;
+      width : 150px;
+    }
+    @keyframes swim {
+      
+      0% {
+        transform: translateX(0px) translateY(100px) rotateY(180deg);
+      }
+      20% {
+        transform: translateX(1650px) translateY(260px) rotateY(180deg) ;
+      }
+      21% {
+        transform: translateX(1600px) translateY(320px) rotateY(0deg) ;
+      }
+      40% {
+        transform: translateX(50px) translateY(580px) ;
+      }
+      41% {
+        transform: translateX(70px) translateY(590px) rotateY(180deg);
+      }
+      60% {
+        transform: translateX(200px) translateY(120px) rotateY(180deg);
+      }
+      
+      80% {
+        transform: translateX(1200px) translateY(800px) rotateY(180deg);
+      }
+      81% {
+        transform: translateX(1150px) translateY(790px) rotateY(0deg);
+      }
+      100% {
+        transform: translateX(0px) translateY(100px) ;
+      }
+    }
+
+    @keyframes swim2 {
+      0% {
+        transform: translateX(1900px) translateY(800px) rotateY(0deg);
+      }
+      20% {
+        transform: translateX(50px) translateY(700px) rotateY(0deg);
+      }
+      21% {
+        transform: translateX(70px) translateY(900px) rotateY(180deg);
+      }
+      40% {
+        transform: translateX(1900px) translateY(700px) rotateY(180deg);
+      }
+      41% {
+        transform: translateX(1850px) translateY(800px) rotateY(0deg);
+      }
+      60% {
+        transform: translateX(100px) translateY(950px) rotateY(0deg);
+      }
+      61% {
+        transform: translateX(150px) translateY(600px) rotateY(180deg);
+      }
+      80% {
+        transform: translateX(1700px) translateY(900px) rotateY(180deg);
+      }
+      81% {
+        transform: translateX(1650px) translateY(990px) rotateY(0deg);
+      }
+      90% {
+        transform: translateX(50px) translateY(800px) rotateY(0deg);
+      }
+      91% {
+        transform: translateX(100px) translateY(750px) rotateY(180deg);
+      }
+      99% {
+        transform: translateX(1950px) translateY(850px) rotateY(180deg);
+      }
+      100% {
+        transform: translateX(1900px) translateY(800px) rotateY(0deg);
+      }
+    }
+
+ @keyframes swim3 {
+      0% {
+        transform: translateX(1900px) translateY(450px) rotateY(0deg);
+      }
+      20% {
+        transform: translateX(50px) translateY(200px) rotateY(0deg);
+      }
+      21% {
+        transform: translateX(55px) translateY(300px) rotateY(180deg);
+      }
+      40% {
+        transform: translateX(1900px) translateY(800px) rotateY(180deg);
+      }
+      41% {
+        transform: translateX(1650px) translateY(700px) rotateY(0deg);
+      }
+      60% {
+        transform: translateX(100px) translateY(950px) rotateY(0deg);
+      }
+      61% {
+        transform: translateX(150px) translateY(900px) rotateY(180deg);
+      }
+      80% {
+        transform: translateX(2000px) translateY(200px) rotateY(180deg);
+      }
+      81% {
+        transform: translateX(1950px) translateY(300px) rotateY(0deg);
+      }
+      90% {
+        transform: translateX(50px) translateY(500px) rotateY(0deg);
+      }
+      91% {
+        transform: translateX(100px) translateY(350px) rotateY(180deg);
+      }
+      99% {
+        transform: translateX(1950px) translateY(500px) rotateY(180deg);
+      }
+      100% {
+        transform: translateX(1900px) translateY(450px) rotateY(0deg);
+      }
+    }
+    
+    @keyframes swim4 {
+      0% {
+        transform: translateX(-50px) translateY(900px) rotateY(0deg);
+      }
+      30% {
+        transform: translateX(350px) translateY(200px) rotateY(0deg);
+      }
+      31% {
+        transform: translateX(400px) translateY(250px) rotateY(0deg);
+      }
+      50% {
+        transform: translateX(750px) translateY(800px) rotateY(0deg);
+      }
+      51% {
+        transform: translateX(800px) translateY(850px) rotateY(0deg);
+      }
+      70% {
+        transform: translateX(1150px) translateY(250px) rotateY(0deg);
+      }
+      71% {
+        transform: translateX(1200px) translateY(300px) rotateY(180deg);
+      }
+      90% {
+        transform: translateX(1550px) translateY(850px) rotateY(180deg);
+      }
+      91% {
+        transform: translateX(1600px) translateY(900px) rotateY(0deg);
+      }
+     
+      99% {
+        transform: translateX(1950px) translateY(250px) rotateY(180deg);
+      }
+      100% {
+        transform: translateX(2000px) translateY(200px) rotateY(0deg);
+      }
+    }
+    
+    @keyframes swim5 {
+      0% {
+        transform: translateX(1900px) translateY(300px) rotateY(180deg);
+      }
+      15% {
+        transform: translateX(800px) translateY(850px) rotateY(180deg);
+      }
+      16% {
+        transform: translateX(850px) translateY(900px) rotateY(0deg);
+      }
+      30% {
+        transform: translateX(1750px) translateY(600px) rotateY(0deg);
+      }
+      31% {
+        transform: translateX(1700px) translateY(650px) rotateY(180deg);
+      }
+      50% {
+        transform: translateX(250px) translateY(450px) rotateY(180deg);
+      }
+      51% {
+        transform: translateX(300px) translateY(400px) rotateY(0deg);
+      }
+      70% {
+        transform: translateX(1550px) translateY(300px) rotateY(0deg);
+      }
+      71% {
+        transform: translateX(1500px) translateY(350px) rotateY(180deg);
+      }
+      85% {
+        transform: translateX(400px) translateY(550px) rotateY(180deg);
+      }
+      86% {
+        transform: translateX(450px) translateY(500px) rotateY(0deg);
+      }
+      99% {
+        transform: translateX(1950px) translateY(250px) rotateY(0deg);
+      }
+      100% {
+        transform: translateX(1900px) translateY(300px) rotateY(180deg);
+      }
+    }
+    
+    @keyframes swim6 {
+      0% {
+        transform: translateX(-50px) translateY(40px) rotateY(0deg);
+      }
+      10% {
+        transform: translateX(200px) translateY(20px) rotateY(0deg);
+      }
+      20% {
+        transform: translateX(400px) translateY(40px) rotateY(0deg);
+      }
+      30% {
+        transform: translateX(600px) translateY(20px) rotateY(0deg);
+      }
+      40% {
+        transform: translateX(800px) translateY(40px) rotateY(0deg);
+      }
+      50% {
+        transform: translateX(1000px) translateY(20px) rotateY(0deg);
+      }
+      60% {
+        transform: translateX(1200px) translateY(40px) rotateY(0deg);
+      }
+      70% {
+        transform: translateX(1400px) translateY(20px) rotateY(0deg);
+      }
+      80% {
+        transform: translateX(1600px) translateY(40px) rotateY(0deg);
+      }
+      90% {
+        transform: translateX(1800px) translateY(20px) rotateY(0deg);
+      }
+      100% {
+        transform: translateX(2000px) translateY(40px) rotateY(0deg);
+      }
+    }
+    
+    @keyframes swim7 {
+      0% {
+        transform: translateX(0px) translateY(500px) rotateY(180deg);
+      }
+      
+      20% {
+        transform: translateX(800px) translateY(200px) rotateY(180deg);
+      }
+      30% {
+        transform: translateX(1300px) translateY(600px) rotateY(180deg);
+      }
+      40% {
+        transform: translateX(1800px) translateY(400px) rotateY(180deg);
+      }
+      41% {
+        transform: translateX(1750px) translateY(500px) rotateY(0deg);
+      }
+      50% {
+        transform: translateX(1100px) translateY(800px) rotateY(0deg);
+      }
+      60% {
+        transform: translateX(300px) translateY(400px) rotateY(0deg);
+      }
+      61% {
+        transform: translateX(350px) translateY(350px) rotateY(180deg);
+      }
+      
+      80% {
+        transform: translateX(1900px) translateY(800px) rotateY(180deg);
+      }
+      81% {
+        transform: translateX(1850px) translateY(750px) rotateY(0deg);
+      }
+      90% {
+        transform: translateX(1200px) translateY(270px) rotateY(0deg);
+      }
+      99% {
+        transform: translateX(-100px) translateY(500px) rotateY(0deg);
+      }
+      100% {
+        transform: translateX(0px) translateY(500px) rotateY(180deg);
+      }
+    }
+    
+</style>
 </head>
 <body>
-    <div class=wrapper>
+ <div class="fish1">🐟</div>
+ <div class="fish2">🐳</div>
+  <div class="fish3">🐠</div>
+   <div class="fish4">🦑</div>
+   <div class="fish5">🦈</div>
+   <div class="fish6">⛵</div>
+   <div class="fish7">🐟🐟🐟🐟🐟🐟🐟🐟</div>
+  
+<div class="abc">
+
+
+<svg width="100%" height="100%" id="svg" viewBox="0 0 1440 700" xmlns="http://www.w3.org/2000/svg"
+            class="transition duration-300 ease-in-out delay-150">
+            <style>
+                .path-0 {
+                    animation: pathAnim-0 3s;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+                }
+
+                @keyframes pathAnim-0 {
+                    0% {
+                        d: path("M 0,400 L 0,60 C 249,50 498,40 738,40 C 978,40 1209,50 1440,60 L 1440,400 L 0,400 Z");
+                    }
+
+                    25% {
+                        d: path("M 0,400 L 0,60 C 290.5,55 581,50 821,50 C 1061,50 1250.5,55 1440,60 L 1440,400 L 0,400 Z");
+                    }
+
+                    50% {
+                        d: path("M 0,400 L 0,60 C 243.5,69.5 487,79 727,79 C 967,79 1203.5,69.5 1440,60 L 1440,400 L 0,400 Z");
+                    }
+
+                    75% {
+                        d: path("M 0,400 L 0,60 C 304.5,73.5 609,87 849,87 C 1089,87 1264.5,73.5 1440,60 L 1440,400 L 0,400 Z");
+                    }
+
+                    100% {
+                        d: path("M 0,400 L 0,60 C 249,50 498,40 738,40 C 978,40 1209,50 1440,60 L 1440,400 L 0,400 Z");
+                    }
+                }
+            </style>
+            <defs>
+                <linearGradient id="gradient" x1="50%" y1="100%" x2="50%" y2="0%">
+                    <stop offset="5%" stop-color="#0693e3"></stop>
+                    <stop offset="95%" stop-color="#8ED1FC"></stop>
+                </linearGradient>
+            </defs>
+            <path d="M 0,400 L 0,60 C 249,50 498,40 738,40 C 978,40 1209,50 1440,60 L 1440,400 L 0,400 Z" stroke="none"
+                stroke-width="0" fill="url(#gradient)" fill-opacity="0.265"
+                class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
+            <style>
+                .path-1 {
+                    animation: pathAnim-1 6s;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+                }
+
+                @keyframes pathAnim-1 {
+                    0% {
+                        d: path("M 0,340 L 0,80 C 211,91 422,102 662,102 C 902,102 1171,91 1440,80 L 1440,340 L 0,340 Z");
+                    }
+                
+                    25% {
+                        d: path("M 0,340 L 0,80 C 251,85.5 502,91 742,91 C 982,91 1211,85.5 1440,80 L 1440,340 L 0,340 Z");
+                    }
+                
+                    50% {
+                        d: path("M 0,340 L 0,80 C 214,91.5 428,103 668,103 C 908,103 1174,91.5 1440,80 L 1440,340 L 0,340 Z");
+                    }
+                
+                    75% {
+                        d: path("M 0,340 L 0,80 C 193.5,82 387,84 627,84 C 867,84 1153.5,82 1440,80 L 1440,340 L 0,340 Z");
+                    }
+                
+                    100% {
+                        d: path("M 0,340 L 0,80 C 211,91 422,102 662,102 C 902,102 1171,91 1440,80 L 1440,340 L 0,340 Z");
+                    }
+                }
+            </style>
+            <defs>
+                <linearGradient id="gradient" x1="50%" y1="100%" x2="50%" y2="0%">
+                    <stop offset="5%" stop-color="#0693e3"></stop>
+                    <stop offset="95%" stop-color="#8ED1FC"></stop>
+                </linearGradient>
+            </defs>
+            <path d="M 0,400 L 0,140 C 211,151 422,162 662,162 C 902,162 1171,151 1440,140 L 1440,400 L 0,400 Z"
+                stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.4"
+                class="transition-all duration-300 ease-in-out delay-150 path-1"></path>
+            <style>
+                .path-2 {
+                    animation: pathAnim-2 9s;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+                }
+
+                @keyframes pathAnim-2 {
+                    0% {
+                        d: path("M 0,280 L 0,100 C 258,91.5 516,83 756,83 C 996,83 1218,91.5 1440,100 L 1440,280 L 0,280 Z");
+                    }
+                
+                    25% {
+                        d: path("M 0,280 L 0,100 C 181.5,103 363,106 603,106 C 843,106 1141.5,103 1440,100 L 1440,280 L 0,280 Z");
+                    }
+                
+                    50% {
+                        d: path("M 0,280 L 0,100 C 216,85 432,70 672,70 C 912,70 1176,85 1440,100 L 1440,280 L 0,280 Z");
+                    }
+                
+                    75% {
+                        d: path("M 0,280 L 0,100 C 292.5,103.5 585,107 825,107 C 1065,107 1252.5,103.5 1440,100 L 1440,280 L 0,280 Z");
+                    }
+                
+                    100% {
+                        d: path("M 0,280 L 0,100 C 258,91.5 516,83 756,83 C 996,83 1218,91.5 1440,100 L 1440,280 L 0,280 Z");
+                    }
+                }
+            </style>
+            <defs>
+                <linearGradient id="gradient" x1="50%" y1="100%" x2="50%" y2="0%">
+                    <stop offset="5%" stop-color="#0693e3"></stop>
+                    <stop offset="95%" stop-color="#8ED1FC"></stop>
+                </linearGradient>
+            </defs>
+            <path d="M 0,400 L 0,220 C 258,211.5 516,203 756,203 C 996,203 1218,211.5 1440,220 L 1440,400 L 0,400 Z"
+                stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53"
+                class="transition-all duration-300 ease-in-out delay-150 path-2"></path>
+            <style>
+                .path-3 {
+                    animation: pathAnim-3 12s;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+                }
+
+                @keyframes pathAnim-3 {
+                    0% {
+                        d: path("M 0,2200 L 0,120 C 212,121.5 424,123 664,123 C 904,123 1172,121.5 1440,120 L 1440,2200 L 0,2200 Z");
+                    }
+                
+                    25% {
+                        d: path("M 0,2200 L 0,120 C 284.5,118.5 569,117 809,117 C 1049,117 1244.5,118.5 1440,120 L 1440,2200 L 0,2200 Z");
+                    }
+                
+                    50% {
+                        d: path("M 0,2200 L 0,120 C 286,129 572,138 812,138 C 1052,138 1246,129 1440,120 L 1440,2200 L 0,2200 Z");
+                    }
+                
+                    75% {
+                        d: path("M 0,2200 L 0,120 C 293.5,110.5 587,101 827,101 C 1067,101 1253.5,110.5 1440,120 L 1440,2200 L 0,2200 Z");
+                    }
+                
+                    100% {
+                        d: path("M 0,2200 L 0,120 C 212,121.5 424,123 664,123 C 904,123 1172,121.5 1440,120 L 1440,2200 L 0,2200 Z");
+                    }
+                }
+            </style>
+            <defs>
+                <linearGradient id="gradient" x1="50%" y1="100%" x2="50%" y2="0%">
+                    <stop offset="5%" stop-color="#0693e3"></stop>
+                    <stop offset="95%" stop-color="#8ED1FC"></stop>
+                </linearGradient>
+            </defs>
+            <path d="M 0,2200 L 0,120 C 212,301.5 424,303 664,303 C 904,303 1172,301.5 1440,300 L 1440,400 L 0,2200 Z"
+                stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1"
+                class="transition-all duration-300 ease-in-out delay-150 path-3"></path>
+        </svg>
+
+ </div>
+    <div class="wrapper">
         <div class="header">
             <div class="logo">
-                <a href="index.jsp"><img src="images/logo.png" alt=""></a>
+                <a href="index.jsp"><!--<img src="images/logo.png" alt="">-->e`지 플래너</a>
             </div>
             <div class="menu">
                 <ul>
@@ -212,7 +708,8 @@
                 <fieldset>
                     <div class="form-group-first">
                         <div class="logo_join">
-                            <img src="images/logo.png" class="logo_join">
+                           <!--   <img src="images/logo.png" class="logo_join">-->
+                        e`지 플래너
                         </div>
                         <p>회원으로 가입해주셔서 감사합니다</p>
                     </div>
@@ -374,11 +871,12 @@
 <!-- 제미나이 ai api -->
 <!-- 제미나이 ai api -->
 <!-- 제미나이 ai api -->
+</div>
 <script type="importmap">
 {"imports": {"@google/generative-ai": "https://esm.run/@google/generative-ai"}}
 </script>
 <script type="module" src="script/gemini_script.js"></script>
-<!--<script src="script/inthesea.js" type="module" ></script>-->
+<!-- <script src="script/inthesea.js" type="module" defer="defer"></script> -->
 
 </body>
 

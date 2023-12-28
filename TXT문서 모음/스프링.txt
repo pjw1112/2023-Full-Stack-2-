@@ -166,7 +166,7 @@ assertSame(a,b)
 9. RESTFUL
 #. 
 
-
+@RunWith(SpringJUnit4ClassRunner.class)
 
 
 

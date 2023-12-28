@@ -151,7 +151,7 @@ public class Users_dao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto_input.getU_kakaoid());
+			pstmt.setString(1, dto_input.getU_kakaoid());
 			rset = pstmt.executeQuery();
 
 			while (rset.next()) {
@@ -164,7 +164,7 @@ public class Users_dao {
 				dto_output.setU_birth( rset.getString("u_birth"));
 				dto_output.setU_join_date( rset.getString("u_join_date"));
 				dto_output.setU_grade( rset.getInt("u_grade"));
-				dto_output.setU_kakaoid(rset.getInt("u_kakaoid"));
+				dto_output.setU_kakaoid(rset.getString("u_kakaoid"));
 			}
 
 		} catch (SQLException e) {
@@ -293,7 +293,7 @@ public class Users_dao {
 			pstmt.setString(4, dto_input.getU_birth());
 			pstmt.setString(5, dto_input.getU_join_date());
 			pstmt.setInt(6, dto_input.getU_grade());
-			pstmt.setInt(7, dto_input.getU_kakaoid());
+			pstmt.setString(7, dto_input.getU_kakaoid());
 			
 			if (pstmt.executeUpdate() > 0) {
 				System.out.println("Users_dao > user_create_byKakao > insert 쿼리 문 성공");
